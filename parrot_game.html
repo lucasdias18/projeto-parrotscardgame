@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./reset.css" />
+        <link rel="stylesheet" href="./estilo.css" />
+        <title>Parrot Card Game</title>
+    </head>
+    <body>
+        <h1>PARROT CARD GAME</h1>
+        <div class="jogo">
+        </div>
+        <script>
+            const cartas = ["./imagens/unicornparrot.gif", "./imagens/unicornparrot.gif",
+                            "./imagens/bobrossparrot.gif", "./imagens/bobrossparrot.gif",
+                            "./imagens/explodyparrot.gif", "./imagens/explodyparrot.gif", 
+                            "./imagens/fiestaparrot.gif", "./imagens/fiestaparrot.gif", 
+                            "./imagens/metalparrot.gif", "./imagens/metalparrot.gif", 
+                            "./imagens/revertitparrot.gif", "./imagens/revertitparrot.gif", 
+                            "./imagens/tripletsparrot.gif", "./imagens/tripletsparrot.gif"];
+
+            let qtdeCartas = prompt("Com quantas cartas quer jogar? Escolha um número par entre 4 e 14.");
+            const jogo = document.querySelector('.jogo');
+            while (qtdeCartas%2 != 0 || qtdeCartas<4 || qtdeCartas>14) {
+                alert("Não é possível iniciar a partida. Escolha um número par entre 4 e 14.");
+                qtdeCartas = prompt("Com quantas cartas quer jogar?");
+                
+            }
+            for (let contador = 0; contador < qtdeCartas; contador++) {
+                jogo.innerHTML += `<button onclick="virarCarta(this)" class="carta">
+                    <img class="face front" src="./imagens/front.png" />
+                    <img class="face back" src=${cartas[contador]} />
+                    </button>`;
+                }
+
+                let contador2 = 0
+
+            function virarCarta(carta) {
+                if (carta.classList.contains('virada') === false) {
+                    carta.classList.add('virada');
+                    contador2++;
+                    console.log(contador2)
+
+                    
+
+                    // if (contador%2 === 0) {
+                    //     let x = propriedade
+                    //     let y = propriedade
+                    //     if (x !== y) {
+                    //         remove('virada')
+                    //     // carta.innerHTML = `<img src="./"`
+                    //     }
+                    // }
+                }
+            }
+            
+        </script>
+    </body>
+</html>
