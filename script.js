@@ -35,30 +35,33 @@ let carta1,carta2;
 function virarCarta(carta) {
     if (carta.classList.contains('virada') === false) {
         carta.classList.add('virada');
-        console.log(carta.classList)
+        console.log(carta.classList);
         contador2++;
         console.log(contador2);
         if (contador2%2 !== 0) {
-            carta1 = carta
+            carta1 = carta;
             x = carta.children[1].getAttribute('src');
         }
                     
         if (contador2%2 === 0) {
-            carta2 = carta
+            carta2 = carta;
             y = carta.children[1].getAttribute('src');
-            // console.log(x);
                         
             if (x !== y) {
-                // setTimeout(1000);
-                carta1.classList.remove('virada');
-                carta2.classList.remove('virada');
+
+                setTimeout(cartaErrada, 1000, 'virada');
         
             }
             let viradas = document.querySelectorAll('.virada');
-            console.log(viradas)
+            console.log(viradas);
             if (viradas.length === parseInt(qtdeCartas)) {
-                alert(`Você ganhou em ${contador2} jogadas!`)
+                setTimeout(alert,1000,`Você ganhou em ${contador2} jogadas!`);
             }            
         }                   
     }
+}
+
+function cartaErrada() {
+    carta1.classList.remove('virada')
+    carta2.classList.remove('virada')
 }
