@@ -19,6 +19,8 @@ h1 {
     gap: 34px;
     flex-wrap: wrap;
     margin-top: 47px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .carta {
@@ -54,7 +56,7 @@ h1 {
     transform: rotateY(180deg);
 }
 
-@media (max-width: 425px) {
+@media (max-width: 720px) {
     .jogo {
         flex-direction: column;
         align-items: center;
