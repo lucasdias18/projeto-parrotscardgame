@@ -12,7 +12,7 @@
         <div class="jogo">
         </div>
         <script>
-            const cartas = ["./imagens/unicornparrot.gif", "./imagens/unicornparrot.gif",
+            let cartas = ["./imagens/unicornparrot.gif", "./imagens/unicornparrot.gif",
                             "./imagens/bobrossparrot.gif", "./imagens/bobrossparrot.gif",
                             "./imagens/explodyparrot.gif", "./imagens/explodyparrot.gif", 
                             "./imagens/fiestaparrot.gif", "./imagens/fiestaparrot.gif", 
@@ -27,33 +27,51 @@
                 qtdeCartas = prompt("Com quantas cartas quer jogar?");
                 
             }
+
+            let carta_jogo = cartas.slice(0,parseInt(qtdeCartas));
+            console.log(carta_jogo)
+            carta_jogo.sort(comparador);
+
+            function comparador(){
+                return Math.random() - 0.5;
+            }
+
             for (let contador = 0; contador < qtdeCartas; contador++) {
                 jogo.innerHTML += `<button onclick="virarCarta(this)" class="carta">
                     <img class="face front" src="./imagens/front.png" />
-                    <img class="face back" src=${cartas[contador]} />
+                    <img class="face back" src=${carta_jogo[contador]} />
                     </button>`;
                 }
 
-                let contador2 = 0
+                let contador2 = 0;
 
             function virarCarta(carta) {
                 if (carta.classList.contains('virada') === false) {
                     carta.classList.add('virada');
                     contador2++;
-                    console.log(contador2)
+                    console.log(contador2);
 
+                    if (contador2%2 !== 0) {
+                        let y = carta.getAttribute('class');
+                        // document.getElementsByClassName
+                        console.log(y);
+                    }
+                    
+                    if (contador2%2 === 0) {
+                        let x = carta.getAttribute('class');
+                        
+                        
                     
 
-                    // if (contador%2 === 0) {
-                    //     let x = propriedade
-                    //     let y = propriedade
-                    //     if (x !== y) {
-                    //         remove('virada')
-                    //     // carta.innerHTML = `<img src="./"`
-                    //     }
-                    // }
+                    }
+                    if (contador2%2 === 0 && x !== y) {
+                            carta.classList.remove('virada');
+                            // carta.innerHTML = `<img src="./"`
+                        }
+                    
                 }
             }
+            
             
         </script>
     </body>
