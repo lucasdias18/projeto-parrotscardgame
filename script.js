@@ -15,7 +15,6 @@ while (qtdeCartas%2 != 0 || qtdeCartas<4 || qtdeCartas>14) {
 }
             
 let carta_jogo = cartas.slice(0,parseInt(qtdeCartas));
-console.log(carta_jogo)
 carta_jogo.sort(comparador);
 
 function comparador(){
@@ -35,9 +34,7 @@ let carta1,carta2;
 function virarCarta(carta) {
     if (carta.classList.contains('virada') === false) {
         carta.classList.add('virada');
-        console.log(carta.classList);
         contador2++;
-        console.log(contador2);
         if (contador2%2 !== 0) {
             carta1 = carta;
             x = carta.children[1].getAttribute('src');
@@ -48,12 +45,11 @@ function virarCarta(carta) {
             y = carta.children[1].getAttribute('src');
                         
             if (x !== y) {
-
                 setTimeout(cartaErrada, 1000, 'virada');
-        
             }
+
             let viradas = document.querySelectorAll('.virada');
-            console.log(viradas);
+            
             if (viradas.length === parseInt(qtdeCartas)) {
                 setTimeout(alert,1000,`Você ganhou em ${contador2} jogadas!`);
             }            
